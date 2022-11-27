@@ -5,7 +5,7 @@ def isOperator(ch):
         return False
 
 
-def postToIn(exp):
+def postfixToInfix(exp):
 
     operands = []
     for i in exp:
