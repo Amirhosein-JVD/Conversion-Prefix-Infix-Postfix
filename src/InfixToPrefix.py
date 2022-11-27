@@ -1,1 +1,1 @@
-a = input("Pleas Enter your express: ")
+a = input("Please Enter your express: ")
