@@ -6,6 +6,7 @@ def isOperator(ch):
 
 
 def Precedence(operator):
+
     if operator == '+' or operator == '-':
         return 1
     elif operator == '*' or operator == '/':
