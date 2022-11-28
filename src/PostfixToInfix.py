@@ -1,7 +1,7 @@
-from Functions import*
+from Functions import *
+
 
 def postfixToInfix(exp):
-
     operands = []
     for i in exp:
         if not isOperator(i):

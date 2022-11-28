@@ -1,13 +1,12 @@
-from Functions import*
+from Functions import *
+
+
 def PostfixToPrefix(exp):
-    operands=[]
+    operands = []
     for i in exp:
-        if(not isOperator(i)):
+        if not isOperator(i):
             operands.append(i)
         else:
-            temp=''
-            temp=i+operands.pop(-2)+operands.pop(-1)
+            temp = i + operands.pop(-2) + operands.pop(-1)
             operands.append(temp)
     return operands.pop()
-
-
