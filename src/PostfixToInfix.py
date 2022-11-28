@@ -1,7 +1,12 @@
-from Functions import *
+def isOperator(ch):
+    if ch == '+' or ch == '-' or ch == '/' or ch == '*' or ch == '^' or ch == '%':
+        return True
+    else:
+        return False
 
 
 def postfixToInfix(exp):
+
     operands = []
     for i in exp:
         if not isOperator(i):
