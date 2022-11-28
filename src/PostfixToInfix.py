@@ -1,12 +1,4 @@
-def isOperator(ch):
-
-    if ch == '+' or ch == '-' or ch == '/' or ch == '*' or ch == '^' or ch == '%':
-
-        return True
-
-    else:
-
-        return False
+from src.Functions import isOperator
 
 
 def postfixToInfix(exp):
