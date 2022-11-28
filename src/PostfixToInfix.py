@@ -1,5 +1,5 @@
-def isOperator(ch):
-    if ch == '+' or ch == '-' or ch == '/' or ch == '*' or ch == '^' or ch == '%':
+def isOperator(element):
+    if element == '+' or element == '-' or element == '/' or element == '*' or element == '^' or element == '%':
         return True
     else:
         return False
