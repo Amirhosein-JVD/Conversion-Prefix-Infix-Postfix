@@ -43,7 +43,6 @@ def infixToPostfix(infix):
         elif character == ')':
 
             while stack and stack[-1] != '(':
-
                 output += stack.pop()
 
             stack.pop()
@@ -61,3 +60,8 @@ def infixToPostfix(infix):
         output += stack.pop()
 
     return output
+
+
+a = input()
+
+print(infixToPostfix(a))

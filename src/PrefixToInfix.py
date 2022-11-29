@@ -9,32 +9,27 @@ def isOperator(element):
         return False
 
 
-def prefixToPostfix(postfix):
+def prefixToInfix(prefix):
 
     stack = []
 
-    postfix = postfix[::-1]
+    prefix = prefix[::-1]
 
-    for i in postfix:
+    for i in range(len(prefix)):
 
-        if isOperator(i):
+        if not isOperator(prefix[i]):
 
-            a = stack.pop()
-
-            b = stack.pop()
-
-            temp = a + b + i
-
-            stack.append(temp)
+            stack.append(prefix[i])
 
         else:
 
-            stack.append(i)
+            element = "(" + stack.pop() + prefix[i] + stack.pop() + ")"
 
-    for i in stack:
-        print(i)
+            stack.append(element)
+
+    return stack.pop()
 
 
 a = input()
 
-prefixToPostfix(a)
+print(prefixToInfix(a))
