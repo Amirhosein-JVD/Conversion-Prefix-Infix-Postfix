@@ -50,8 +50,3 @@ def infixToPrefix(exp):
     result = result[::-1]
 
     return result
-
-
-a = input()
-
-print(infixToPrefix(a))
