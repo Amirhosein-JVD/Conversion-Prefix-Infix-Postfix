@@ -26,15 +26,3 @@ def Precedence(operator):
     else:
 
         return 0
-
-def prefixToTreeList(pre):
-    operators=[]
-    operands=[]
-    for i in pre:
-        if(isOperator(i)):operators.append(i)
-        else:operands.append(i)
-    temp=operators+operands
-    rslt=''
-    for i in temp:
-        rslt+=i
-    return rslt
