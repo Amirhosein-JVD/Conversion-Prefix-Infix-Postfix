@@ -19,11 +19,11 @@ def prefixToPostfix(postfix):
 
         if isOperator(i):
 
-            a = stack.pop()
+            c = stack.pop()
 
             b = stack.pop()
 
-            temp = a + b + i
+            temp = c + b + i
 
             stack.append(temp)
 
@@ -32,6 +32,7 @@ def prefixToPostfix(postfix):
             stack.append(i)
 
     for i in stack:
+
         print(i)
 
 
