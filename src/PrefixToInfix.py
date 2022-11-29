@@ -28,8 +28,3 @@ def prefixToInfix(prefix):
             stack.append(element)
 
     return stack.pop()
-
-
-a = input()
-
-print(prefixToInfix(a))
