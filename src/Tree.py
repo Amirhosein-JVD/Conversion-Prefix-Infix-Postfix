@@ -6,11 +6,7 @@ from Functions import *
 
 a = input("Please Enter Your Expression: ")
 
-b = infixToPrefix(a)
-
-b = levelOrderList(b)
-
-print(b)
+b = levelOrderList(a)
 
 nodes = "["
 
