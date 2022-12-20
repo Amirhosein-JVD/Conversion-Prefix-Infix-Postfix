@@ -30,8 +30,6 @@ def Precedence(operator):
 
 def levelOrderList(infixExp):
 
-    myLen = len(infixExp)
-
     counter = 0
 
     max = 0
@@ -52,15 +50,13 @@ def levelOrderList(infixExp):
 
     myList = []
 
-    for i in range(max):
+    for i in range(max+1):
 
         temp = []
 
         myList.append(temp)
 
-    resLen = ((2 ** (max + 1)) - 1)
-
-    res = [None] * resLen
+    myLen=len(infixExp)
 
     for i in range(myLen):
 
@@ -74,120 +70,40 @@ def levelOrderList(infixExp):
 
             counter -= 1
 
-        elif isOperator(infixExp[i]):
+        elif isOperator(myChar):
+    
+            pre = infixExp[i-1]
 
-            temp = [infixExp[i], infixExp[i - 1] + infixExp[i + 1]]
+            nxt = infixExp[i+1]
 
-            myList[counter - 1].append(temp)
+            myList[counter - 1].append(myChar)
 
-    for i in range(max):
+            if(pre!=')'):
+                
+                myList[counter].append(pre)
 
-        iListLength = len(myList[i])
+                for j in range(max-counter):
+                    for k in range(2**(j+1)):
 
-        for j in range(2 ** i):
+                        myList[counter+j+1].append('#')
+            
+            if(nxt != '('):
 
-            if j < iListLength:
+                myList[counter].append(nxt)
 
-                min = 0
+                for j in range(max-counter):
+                    for k in range(2**(j+1)):
+                        
+                        myList[counter+j+1].append('#')
+        
+        res=[]
 
-                for k in range(min, resLen):
+        for i in range(max+1):
 
-                    if res[k] is None:
+            inListLen=len(myList[i])
 
-                        res[k] = myList[i][j][0]
+            for j in range(inListLen):
 
-                        min += 1
+                res.append(myList[i][j])
 
-                        break
-
-                if myList[i][j][1][0] != ')':
-
-                    myIndex = (((2 ** (i + 1)) - 1) + 2 * (j + 1) - 2)
-
-                    if res[myIndex] is None:
-
-                        res[myIndex] = myList[i][j][1][0]
-
-                    else:
-
-                        for k in range(myIndex + 1, resLen):
-
-                            if res[k] is None:
-
-                                res[k] = myList[i][j][1][0]
-
-                                break
-
-                    for p1 in range(max - 1):
-
-                        myIndex2 = (((2 ** (i + 2 + p1)) - 1) + (j * (2 ** (p1 + 2))))
-
-                        end = myIndex2 + 2 ** (p1 + 1)
-
-                        if end <= resLen:
-
-                            for p in range(myIndex2, end):
-
-                                if res[p] is None:
-
-                                    res[p] = '#'
-
-                        else:
-
-                            break
-
-                if myList[i][j][1][1] != '(':
-
-                    myIndex = (((2 ** (i + 1)) - 1) + 2 * (j + 1) - 1)
-
-                    if res[myIndex] is None:
-
-                        res[myIndex] = myList[i][j][1][1]
-
-                    else:
-
-                        for k in range(myIndex + 1, resLen):
-
-                            if res[k] is None:
-
-                                if myList[i][j][1][0] == ')':
-
-                                    res[k + 1] = myList[i][j][1][1]
-
-                                    break
-
-                                elif myList[i][j][1][0] != ')':
-
-                                    res[k] = myList[i][j][1][1]
-
-                                    break
-
-                    for p1 in range(max - 1):
-
-                        myIndex2 = ((2 ** (i + 2 + p1) - 1) + (j + 1) * (2 ** (p1 + 2)))
-
-                        if myIndex2 <= resLen:
-
-                            start = myIndex2 - (2 ** (p1 + 1))
-
-                            for p in range(start, myIndex2):
-
-                                if res[p] is None:
-
-                                    res[p] = '#'
-                        else:
-
-                            break
-            else:
-
-                break
-
-    if None in res:
-
-        for i in range(resLen):
-
-            if res[i] is None:
-
-                res[i] = '#'
-
-    return res
+    return res        
