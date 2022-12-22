@@ -1,4 +1,5 @@
-from utility.Functions import *
+from src.Algorithms.InfixToPostfix import isOperator
+from src.Algorithms.utility.Functions import Precedence
 
 
 def infixToPrefix(exp):

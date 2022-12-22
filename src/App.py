@@ -1,10 +1,11 @@
-from Algorithms.InfixToPrefix import *
-from Algorithms.InfixToPostfix import *
-from Algorithms.PrefixToPostfix import *
-from Algorithms.PrefixToInfix import *
-from Algorithms.PostfixToinfix import *
-from Algorithms.PostfixToPrefix import *
-from Algorithms.utility.Tree import *
+from src.Algorithms.InfixToPostfix import infixToPostfix
+from src.Algorithms.InfixToPrefix import infixToPrefix
+from src.Algorithms.PostfixToPrefix import postfixToPrefix
+from src.Algorithms.PostfixToinfix import postfixToInfix
+from src.Algorithms.PrefixToInfix import prefixToInfix
+from src.Algorithms.PrefixToPostfix import prefixToPostfix
+from src.Algorithms.utility.Functions import isInfix, isPostfix, isPrefix
+from src.Algorithms.utility.Tree import drawtree
 
 expression = input("Please Enter Your Expression : ")
 

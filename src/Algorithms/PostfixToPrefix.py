@@ -1,4 +1,4 @@
-from utility.Functions import *
+from src.Algorithms.InfixToPostfix import isOperator
 
 
 def postfixToPrefix(exp):
