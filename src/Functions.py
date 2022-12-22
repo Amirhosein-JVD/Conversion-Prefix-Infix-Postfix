@@ -100,7 +100,6 @@ def levelOrderList(infixExp):
             for j in range(inListLen):
                 res.append(myList[i][j])
 
-<<<<<<< HEAD
     return res        
 
 
@@ -134,6 +133,3 @@ def isPostfix(exp):
     else:
 
         return False
-=======
-    return res
->>>>>>> 47fcccdcab287ff0108c222c1d0105bdec9188a8
