@@ -1,5 +1,3 @@
-# We change the drawtree library to run this code
-
 from drawtree import draw_level_order
 
 from src.Algorithms.utility.Functions import levelOrderList
