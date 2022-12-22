@@ -11,6 +11,8 @@ def isOperator(element):
 
 def prefixToPostfix(postfix):
 
+    result = ""
+
     stack = []
 
     postfix = postfix[::-1]
@@ -33,9 +35,6 @@ def prefixToPostfix(postfix):
 
     for i in stack:
 
-        print(i)
+        result += i
 
-
-a = input()
-
-prefixToPostfix(a)
+    return result

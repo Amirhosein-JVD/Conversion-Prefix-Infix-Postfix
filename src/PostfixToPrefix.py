@@ -18,8 +18,3 @@ def postfixToPrefix(exp):
             operands.append(temp)
 
     return operands.pop()
-
-
-a = input()
-
-print(postfixToPrefix(a))

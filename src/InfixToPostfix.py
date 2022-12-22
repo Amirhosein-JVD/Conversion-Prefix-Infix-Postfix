@@ -60,8 +60,3 @@ def infixToPostfix(infix):
         output += stack.pop()
 
     return output
-
-
-a = input()
-
-print(infixToPostfix(a))
