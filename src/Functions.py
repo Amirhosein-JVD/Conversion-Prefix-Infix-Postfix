@@ -82,20 +82,22 @@ def levelOrderList(infixExp):
                 
                 myList[counter].append(pre)
 
-                for j in range(max-counter):
-                    for k in range(2**(j+1)):
+                if(counter!=max):
 
-                        myList[counter+j+1].append('#')
+                    for j in range(2):
+
+                        myList[counter+1].append('#')
             
             if(nxt != '('):
 
                 myList[counter].append(nxt)
 
-                for j in range(max-counter):
-                    for k in range(2**(j+1)):
-                        
-                        myList[counter+j+1].append('#')
+                if(max!=counter):
+
+                    for j in range(2):
         
+                        myList[counter+1].append('#')
+            
         res=[]
 
         for i in range(max+1):
