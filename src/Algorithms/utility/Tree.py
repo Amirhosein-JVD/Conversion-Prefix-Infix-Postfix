@@ -2,7 +2,7 @@
 
 from drawtree import draw_level_order
 
-from Functions import *
+from src.Algorithms.utility.Functions import levelOrderList
 
 
 def drawtree(infix):
