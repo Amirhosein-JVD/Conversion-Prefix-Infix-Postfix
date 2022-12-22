@@ -109,3 +109,35 @@ def levelOrderList(infixExp):
                 res.append(myList[i][j])
 
     return res        
+
+
+
+def isInfix(exp):
+
+    if((exp[0]=='(' or not isOperator(exp[0]))and(exp[-1]==')' or not isOperator(exp[-1]))):
+
+        return True
+
+    else:
+
+        return False
+
+def isPrefix(exp):
+
+    if(isOperator(exp[0])):
+
+        return True
+    
+    else:
+
+        return False
+    
+def isPostfix(exp):
+
+    if(isOperator(exp[-1])):
+
+        return True
+    
+    else:
+
+        return False
