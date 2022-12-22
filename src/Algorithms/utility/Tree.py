@@ -1,6 +1,5 @@
-from drawtree import draw_level_order
-
 from src.Algorithms.utility.Functions import levelOrderList
+from src.drawtree.drawtree import draw_level_order
 
 
 def drawtree(infix):
