@@ -18,8 +18,3 @@ def postfixToInfix(exp):
             operands.append(temp)
 
     return operands.pop()
-
-
-a = input()
-
-print(postfixToInfix(a))
