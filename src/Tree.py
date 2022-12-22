@@ -1,6 +1,6 @@
-from drawtree import draw_level_order
+# We change the drawtree library to run this code
 
-from src.InfixToPrefix import infixToPrefix
+from drawtree import draw_level_order
 
 from Functions import *
 
