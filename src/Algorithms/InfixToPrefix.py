@@ -1,7 +1,8 @@
-from utility.Functions import*
+from src.Algorithms.utility.Functions import isOperator
+from src.Algorithms.utility.Functions import Precedence
+
 
 def infixToPrefix(exp):
-
     exp = exp[::-1]
 
     operators = []
@@ -10,63 +11,60 @@ def infixToPrefix(exp):
 
     for i in exp:
 
-        if(isOperator(i)):
+        if isOperator(i):
 
-            if((len(operators)>0) and (operators[-1]!=')')):
+            if (len(operators) > 0) and (operators[-1] != ')'):
 
-                if(Precedence(i)>Precedence(operators[-1])):
+                if Precedence(i) > Precedence(operators[-1]):
 
                     operators.append(i)
-                
+
                 else:
 
-                    if(i=='^' and operators[-1]=='^'):
+                    if i == '^' and operators[-1] == '^':
 
-                        result+=operators[-1]
+                        result += operators[-1]
 
                         operators.pop()
 
                         operators.append(i)
-                    
+
                     else:
 
-                        while(len(operators)!=0 and Precedence(i)<Precedence(operators[-1])):
-
-                            result+=operators[-1]
+                        while len(operators) != 0 and Precedence(i) < Precedence(operators[-1]):
+                            result += operators[-1]
 
                             operators.pop()
 
                         operators.append(i)
-        
+
             else:
 
                 operators.append(i)
-        
-        elif(i==')'):
+
+        elif i == ')':
 
             operators.append(i)
 
-        elif(i=='('):
+        elif i == '(':
 
-            k=''
+            k = ''
 
-            while(k!=')'):
+            while k != ')':
 
-                k=operators[-1]
+                k = operators[-1]
 
-                if(k!=')'):
-
-                    result+=k
+                if k != ')':
+                    result += k
 
                 operators.pop()
 
         else:
 
-            result+=i
+            result += i
 
-    while(len(operators)!=0):
-
-        result+=operators[-1]
+    while len(operators) != 0:
+        result += operators[-1]
 
         operators.pop()
 
