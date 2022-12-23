@@ -47,6 +47,10 @@ def infixToPostfix(infix):
 
             stack.pop()
 
+        elif getPriority(stack and stack[-1]) == getPriority(character) == 3:
+
+            stack.append("^")
+
         else:
 
             while stack and stack[-1] != '(' and getPriority(character) <= getPriority(stack[-1]):
