@@ -19,7 +19,7 @@ if isInfix(expression):
     print("----------------------------------------------------")
     print("expression tree : ")
     print()
-    drawtree(postfixToInfix(infixToPostfix(expression)))
+    drawtree(prefixToInfix(infixToPrefix(expression)))
 
 elif isPostfix(expression):
 
