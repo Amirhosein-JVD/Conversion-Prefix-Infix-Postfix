@@ -1,6 +1,4 @@
-from InfixToPostfix import isOperator
-from utility.Functions import Precedence
-
+from utility.Functions import*
 
 def infixToPrefix(exp):
 
@@ -12,43 +10,65 @@ def infixToPrefix(exp):
 
     for i in exp:
 
-        if isOperator(i):
+        if(isOperator(i)):
 
-            if len(operators) != 0 and (Precedence(i) < Precedence(operators[-1]) or (Precedence(i) == Precedence(operators[-1]) == 4)):
+            if((len(operators)>0) and (operators[-1]!=')')):
 
-                result += operators.pop()
+                if(Precedence(i)>Precedence(operators[-1])):
 
-                operators.append(i)
+                    operators.append(i)
+                
+                else:
 
+                    if(i=='^' and operators[-1]=='^'):
+
+                        result+=operators[-1]
+
+                        operators.pop()
+
+                        operators.append(i)
+                    
+                    else:
+
+                        while(len(operators)!=0 and Precedence(i)<Precedence(operators[-1])):
+
+                            result+=operators[-1]
+
+                            operators.pop()
+
+                        operators.append(i)
+        
             else:
 
                 operators.append(i)
-
-        elif i == ')':
+        
+        elif(i==')'):
 
             operators.append(i)
 
-        elif i == '(':
+        elif(i=='('):
 
-            op = None
+            k=''
 
-            while op != ')':
+            while(k!=')'):
 
-                op = operators.pop()
+                k=operators[-1]
 
-                if op == ')':
-                    break
+                if(k!=')'):
 
-                result += op
+                    result+=k
+
+                operators.pop()
+
         else:
 
-            result += i
+            result+=i
 
-    for item in operators[::-1]:
+    while(len(operators)!=0):
 
-        if(operators[-1]!='('):
+        result+=operators[-1]
 
-            result += operators.pop()
+        operators.pop()
 
     result = result[::-1]
 
