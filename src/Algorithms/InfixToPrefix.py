@@ -1,5 +1,5 @@
-from src.Algorithms.InfixToPostfix import isOperator
-from src.Algorithms.utility.Functions import Precedence
+from InfixToPostfix import isOperator
+from utility.Functions import Precedence
 
 
 def infixToPrefix(exp):
@@ -44,9 +44,11 @@ def infixToPrefix(exp):
 
             result += i
 
-    while len(operators) != 0:
+    for item in operators[::-1]:
 
-        result += operators.pop()
+        if(operators[-1]!='('):
+
+            result += operators.pop()
 
     result = result[::-1]
 
